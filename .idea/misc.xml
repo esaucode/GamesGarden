@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/dialog_input.xml" value="0.33" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/fragment_color_list.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/fragment_final.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/fragment_home.xml" value="0.276268115942029" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/fragment_initial.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/item_color.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/item_feature.xml" value="0.276268115942029" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
