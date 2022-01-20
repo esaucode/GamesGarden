@@ -11,7 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.esaudev.gamesgarden.R
 import com.esaudev.gamesgarden.databinding.FragmentHomeBinding
 import com.esaudev.gamesgarden.di.DataModule.FeaturesList
+import com.esaudev.gamesgarden.model.DifferentItem
 import com.esaudev.gamesgarden.ui.components.QuantityDialog
+import com.esaudev.gamesgarden.util.ItemConstants.FIRST_ITEM_TYPE
+import com.esaudev.gamesgarden.util.ItemConstants.SECOND_ITEM_TYPE
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -23,10 +26,25 @@ class HomeFragment : Fragment() {
         get() = _binding!!
 
     private val featuresAdapter = FeaturesAdapter()
+    private val itemListAdapter = ItemListAdapter()
 
     @Inject
     @FeaturesList
     lateinit var featuresList: List<String>
+
+    private val differentList = listOf(
+        DifferentItem(
+            name = "El pichichi",
+            type = FIRST_ITEM_TYPE
+        ),
+        DifferentItem(
+            name = "El bicho",
+            type = SECOND_ITEM_TYPE
+        ), DifferentItem(
+            name = "El pichichi",
+            type = FIRST_ITEM_TYPE
+        )
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,10 +77,10 @@ class HomeFragment : Fragment() {
 
     private fun init(){
 
-        featuresAdapter.submitList(featuresList)
+        itemListAdapter.submitList(differentList)
 
-        binding.rvFeatures.apply {
-            this.adapter = featuresAdapter
+        binding.rvItems.apply {
+            this.adapter = itemListAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
     }

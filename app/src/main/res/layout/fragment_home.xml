@@ -18,12 +18,12 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFeatures"
+        android:id="@+id/rvItems"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
 
-        tools:listitem="@layout/item_feature"
+        tools:listitem="@layout/item_first_type"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bShowDialog"
