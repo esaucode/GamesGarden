@@ -25,27 +25,6 @@ class HomeFragment : Fragment() {
     private val binding: FragmentHomeBinding
         get() = _binding!!
 
-    private val featuresAdapter = FeaturesAdapter()
-    private val itemListAdapter = ItemListAdapter()
-
-    @Inject
-    @FeaturesList
-    lateinit var featuresList: List<String>
-
-    private val differentList = listOf(
-        DifferentItem(
-            name = "El pichichi",
-            type = FIRST_ITEM_TYPE
-        ),
-        DifferentItem(
-            name = "El bicho",
-            type = SECOND_ITEM_TYPE
-        ), DifferentItem(
-            name = "El pichichi",
-            type = FIRST_ITEM_TYPE
-        )
-    )
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,30 +39,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        init()
-
-        featuresAdapter.setItemClickListener {
-            findNavController().navigate(R.id.toInitialFragment)
-        }
-
-        binding.bShowDialog.setOnClickListener {
-            QuantityDialog(
-                onSubmitClickListener = { quantity ->
-                    Toast.makeText(requireContext(), "Usted ingreso: $quantity", Toast.LENGTH_SHORT).show()
-                }
-            ).show(parentFragmentManager, "dialog")
-        }
     }
 
-    private fun init(){
-
-        itemListAdapter.submitList(differentList)
-
-        binding.rvItems.apply {
-            this.adapter = itemListAdapter
-            layoutManager = LinearLayoutManager(requireContext())
-        }
-    }
 
 
 

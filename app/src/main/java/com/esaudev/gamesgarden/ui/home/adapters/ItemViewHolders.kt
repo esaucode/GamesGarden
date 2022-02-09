@@ -1,4 +1,4 @@
-package com.esaudev.gamesgarden.ui.home
+package com.esaudev.gamesgarden.ui.home.adapters
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
