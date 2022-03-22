@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_main"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/colorListFragment">
 
     <fragment
         android:id="@+id/colorListFragment"
@@ -33,4 +33,9 @@
         android:name="com.esaudev.gamesgarden.ui.navigation_states.FinalFragment"
         android:label="fragment_final"
         tools:layout="@layout/fragment_final" />
+    <fragment
+        android:id="@+id/motionFragment"
+        android:name="com.esaudev.gamesgarden.ui.motion.MotionFragment"
+        android:label="fragment_motion_end"
+        tools:layout="@layout/fragment_motion" />
 </navigation>

@@ -66,4 +66,7 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:1.0.0"
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
 
+    // Constraint - Motion layout
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+
 }
