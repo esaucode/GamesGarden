@@ -6,15 +6,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.esaudev.gamesgarden.databinding.ItemFeatureBinding
+import com.esaudev.gamesgarden.ui.recycler_view_animations.Feature
 
-class FeaturesAdapter: ListAdapter<String, FeaturesAdapter.FeatureViewHolder>(Companion) {
+class FeaturesAdapter: ListAdapter<Feature, FeaturesAdapter.FeatureViewHolder>(Companion) {
 
-    companion object : DiffUtil.ItemCallback<String>() {
-        override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+    companion object : DiffUtil.ItemCallback<Feature>() {
+        override fun areItemsTheSame(oldItem: Feature, newItem: Feature): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+        override fun areContentsTheSame(oldItem: Feature, newItem: Feature): Boolean {
             return oldItem == newItem
         }
     }
@@ -33,7 +34,9 @@ class FeaturesAdapter: ListAdapter<String, FeaturesAdapter.FeatureViewHolder>(Co
     override fun onBindViewHolder(holder: FeatureViewHolder, position: Int) {
         val feature = currentList[position]
 
-        holder.binding.tvFeature.text = feature
+        holder.binding.tvName.text = feature.name
+        holder.binding.tvQuantity.text = feature.quantity.toString()
+
         holder.itemView.apply {
             setOnClickListener {
                 onItemClickListener?.let { click ->
@@ -43,9 +46,9 @@ class FeaturesAdapter: ListAdapter<String, FeaturesAdapter.FeatureViewHolder>(Co
         }
     }
 
-    protected var onItemClickListener : ((String) -> Unit)? = null
+    protected var onItemClickListener : ((Feature) -> Unit)? = null
 
-    fun setItemClickListener(listener: (String) -> Unit){
+    fun setItemClickListener(listener: (Feature) -> Unit){
         onItemClickListener = listener
     }
 }

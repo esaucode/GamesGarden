@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.esaudev.gamesgarden.databinding.FragmentColorListBinding
 import com.esaudev.gamesgarden.di.DataModule.ColorList
+import com.esaudev.gamesgarden.ui.home.adapters.FeaturesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -22,6 +23,20 @@ class ColorListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val colorsAdapter = ColorsAdapter()
+    private val featuresAdapter = FeaturesAdapter()
+
+    private val featuresList = listOf(
+        Feature("Feature 1", 1),
+        Feature("Feature 2", 2),
+        Feature("Feature 3", 3),
+        Feature("Feature 4", 4),
+        Feature("Feature 5", 5),
+        Feature("Feature 6", 6),
+        Feature("Feature 7", 7),
+        Feature("Feature 8", 8),
+        Feature("Feature 9", 9),
+        Feature("Feature 10", 10)
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,10 +55,10 @@ class ColorListFragment : Fragment() {
 
     private fun init(){
 
-        colorsAdapter.submitList(colorList)
+        featuresAdapter.submitList(featuresList)
 
         binding.rvColors.apply {
-            this.adapter = colorsAdapter
+            this.adapter = featuresAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
 
