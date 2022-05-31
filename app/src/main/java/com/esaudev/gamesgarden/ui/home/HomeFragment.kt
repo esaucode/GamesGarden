@@ -63,7 +63,7 @@ class HomeFragment : Fragment() {
         init()
 
         featuresAdapter.setItemClickListener {
-            findNavController().navigate(R.id.toInitialFragment)
+
         }
 
         binding.bShowDialog.setOnClickListener {
