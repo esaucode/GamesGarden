@@ -1,8 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">GamesGarden</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="go_to_next_screen">Go to next screen</string>
-
-
+    <string name="go_to_next_screen">Ir a la siguiente pantalla</string>
 </resources>
