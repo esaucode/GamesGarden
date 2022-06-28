@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.esaudev.gamesgarden.R
 import com.esaudev.gamesgarden.databinding.FragmentBBinding
 import com.esaudev.gamesgarden.databinding.FragmentInitialBinding
@@ -20,6 +21,7 @@ class BFragment : Fragment() {
         get() = _binding!!
 
     private val viewModel: BViewModel by viewModels()
+    private val args: BFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,11 +39,12 @@ class BFragment : Fragment() {
 
         initObservers()
         initListeners()
+        binding.tvArgument.text = args.fragmentB
     }
 
     private fun initObservers() {
         viewModel.argument.observe(viewLifecycleOwner) {
-            binding.tvArgument.text = it
+           // binding.tvArgument.text = it
             binding.tvArgument.visibility = View.VISIBLE
             Log.d("TEST_ESAU", "Observer triggered")
         }
