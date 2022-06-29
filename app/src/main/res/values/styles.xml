@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="ToolbarColoredBackArrow" parent="Theme.GamesGarden">
+        <item name="colorControlNormal">@color/black</item>
+    </style>
+</resources>
