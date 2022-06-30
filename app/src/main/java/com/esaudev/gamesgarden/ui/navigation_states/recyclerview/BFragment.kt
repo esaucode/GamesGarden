@@ -1,7 +1,6 @@
-package com.esaudev.gamesgarden.ui.navigation_states
+package com.esaudev.gamesgarden.ui.navigation_states.recyclerview
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +9,11 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.esaudev.gamesgarden.R
 import com.esaudev.gamesgarden.databinding.FragmentBBinding
-import com.esaudev.gamesgarden.databinding.FragmentInitialBinding
+import com.esaudev.gamesgarden.model.Player
+import com.esaudev.gamesgarden.ui.navigation_states.BViewModel
 
 class BFragment : Fragment() {
 
@@ -22,6 +23,7 @@ class BFragment : Fragment() {
 
     private val viewModel: BViewModel by viewModels()
     private val args: BFragmentArgs by navArgs()
+    private val playerListAdapter = PlayerListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,22 +39,42 @@ class BFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initRecyclerView()
         initObservers()
         initListeners()
-        binding.tvArgument.text = args.fragmentB
+    }
+
+    private fun initRecyclerView() {
+        with(binding.rvPlayers) {
+            adapter = playerListAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            overScrollMode = View.OVER_SCROLL_NEVER
+            setHasFixedSize(false)
+        }
+
+        val playerList = listOf(
+            "Son",
+            "CR7",
+            "Messi",
+            "Ronaldo",
+            "Vinicius",
+            "Edson Alvarez",
+            "Cavani",
+            "Luis Suarez"
+        ).map {
+            Player(name = it)
+        }
+
+        playerListAdapter.submitList(playerList)
     }
 
     private fun initObservers() {
-        viewModel.argument.observe(viewLifecycleOwner) {
-           // binding.tvArgument.text = it
-            binding.tvArgument.visibility = View.VISIBLE
-            Log.d("TEST_ESAU", "Observer triggered")
-        }
+        viewModel.argument.observe(viewLifecycleOwner) { }
     }
 
     private fun initListeners(){
-        binding.tvArgument.setOnClickListener {
-            findNavController().navigate(R.id.action_BFragment_to_finalFragment)
+        playerListAdapter.setPlayerClickListener {
+            Toast.makeText(requireContext(), it.name, Toast.LENGTH_SHORT).show()
         }
     }
 }

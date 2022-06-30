@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.navigation_states.BFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.navigation_states.recyclerview.BFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tvArgument"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPlayers"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:visibility="gone"
-        tools:text="@string/hello_blank_fragment" />
+        android:visibility="visible"
+        tools:itemCount="6"
+        tools:listitem="@layout/item_feature" />
 
-</FrameLayout>
+</ScrollView>
