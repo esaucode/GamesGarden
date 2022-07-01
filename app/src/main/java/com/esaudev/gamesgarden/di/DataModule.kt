@@ -1,10 +1,12 @@
 package com.esaudev.gamesgarden.di
 
 import android.graphics.Color
+import com.esaudev.gamesgarden.model.Player
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Named
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
@@ -26,6 +28,10 @@ object DataModule {
             Color.DKGRAY
         )
     }
+
+    @Singleton
+    @Provides
+    fun providePlayer() = Player(name = "CR7")
 
     @FeaturesList
     @Singleton

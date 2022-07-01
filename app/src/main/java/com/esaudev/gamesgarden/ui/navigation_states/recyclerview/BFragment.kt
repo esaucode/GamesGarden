@@ -12,9 +12,13 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.esaudev.gamesgarden.R
 import com.esaudev.gamesgarden.databinding.FragmentBBinding
+import com.esaudev.gamesgarden.di.DataModule
 import com.esaudev.gamesgarden.model.Player
 import com.esaudev.gamesgarden.ui.navigation_states.BViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class BFragment : Fragment() {
 
     private var _binding: FragmentBBinding? = null
@@ -24,6 +28,10 @@ class BFragment : Fragment() {
     private val viewModel: BViewModel by viewModels()
     private val args: BFragmentArgs by navArgs()
     private val playerListAdapter = PlayerListAdapter()
+
+    @DataModule.ColorList
+    @Inject lateinit var patitoList: List<Int>
+    @Inject lateinit var player: Player
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +50,7 @@ class BFragment : Fragment() {
         initRecyclerView()
         initObservers()
         initListeners()
+        Toast.makeText(requireContext(), player.name, Toast.LENGTH_SHORT).show()
     }
 
     private fun initRecyclerView() {
