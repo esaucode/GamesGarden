@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_main"
-    app:startDestination="@id/BFragment">
+    app:startDestination="@id/initialFragment">
+
     <fragment
         android:id="@+id/initialFragment"
         android:name="com.esaudev.gamesgarden.ui.navigation_states.InitialFragment"
@@ -22,10 +23,7 @@
         android:id="@+id/BFragment"
         android:name="com.esaudev.gamesgarden.ui.navigation_states.recyclerview.BFragment"
         android:label="fragment_b"
-        tools:layout="@layout/fragment_b" >
-        <action
-            android:id="@+id/action_BFragment_to_finalFragment"
-            app:destination="@id/finalFragment" />
+        tools:layout="@layout/fragment_b">
         <argument
             android:name="fragmentB"
             app:argType="string"

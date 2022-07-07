@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/initialFragment"
+        android:icon="@drawable/ic_search"
+        android:title="Buscar" />
+
+    <item
+        android:id="@+id/finalFragment"
+        android:icon="@drawable/ic_account"
+        android:title="Cuenta"/>
+
+</menu>
