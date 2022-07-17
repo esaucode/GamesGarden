@@ -5,10 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.esaudev.gamesgarden.R
 import com.esaudev.gamesgarden.databinding.FragmentColorListBinding
 import com.esaudev.gamesgarden.di.DataModule.ColorList
 import com.esaudev.gamesgarden.ui.home.adapters.FeaturesAdapter
+import com.esaudev.gamesgarden.ui.recycler_view_animations.filter.AFilter
+import com.esaudev.gamesgarden.ui.recycler_view_animations.filter.BFilter
+import com.esaudev.gamesgarden.ui.recycler_view_animations.filter.CFilter
+import com.esaudev.gamesgarden.ui.recycler_view_animations.filter.Filterable
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -24,19 +31,7 @@ class ColorListFragment : Fragment() {
 
     private val colorsAdapter = ColorsAdapter()
     private val featuresAdapter = FeaturesAdapter()
-
-    private val featuresList = listOf(
-        Feature("Feature 1", 1),
-        Feature("Feature 2", 2),
-        Feature("Feature 3", 3),
-        Feature("Feature 4", 4),
-        Feature("Feature 5", 5),
-        Feature("Feature 6", 6),
-        Feature("Feature 7", 7),
-        Feature("Feature 8", 8),
-        Feature("Feature 9", 9),
-        Feature("Feature 10", 10)
-    )
+    private val viewModel: ColorListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,13 +44,80 @@ class ColorListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        init()
+        initObservable()
+        //initListeners()
+        initAnimation()
     }
 
-    private fun init(){
+    private fun initAnimation() {
+        val animZoomOut =
+            AnimationUtils.loadAnimation(requireContext(), R.anim.zoom_out)
+        //binding.testImage.startAnimation(animZoomOut)
+    }
 
-        featuresAdapter.submitList(featuresList)
+    /*private fun initListeners() {
+        binding.cbA.setOnCheckedChangeListener { compoundButton, buttonChecked ->
+            val filters = arrayListOf<Filterable>()
+            if (buttonChecked) {
+                filters.add(AFilter())
+            }
+
+            if (binding.cbB.isChecked) {
+                filters.add(BFilter())
+            }
+
+            if (binding.cbC.isChecked) {
+                filters.add(CFilter())
+            }
+
+            viewModel.triggerTriggers(*filters.toTypedArray())
+        }
+
+        binding.cbB.setOnCheckedChangeListener { compoundButton, buttonChecked ->
+            val filters = arrayListOf<Filterable>()
+            if (buttonChecked) {
+                filters.add(BFilter())
+            }
+
+            if (binding.cbA.isChecked) {
+                filters.add(AFilter())
+            }
+
+            if (binding.cbC.isChecked) {
+                filters.add(CFilter())
+            }
+
+            viewModel.triggerTriggers(*filters.toTypedArray())
+        }
+
+        binding.cbC.setOnCheckedChangeListener { compoundButton, buttonChecked ->
+            val filters = arrayListOf<Filterable>()
+            if (buttonChecked) {
+                filters.add(CFilter())
+            }
+
+            if (binding.cbB.isChecked) {
+                filters.add(BFilter())
+            }
+
+            if (binding.cbA.isChecked) {
+                filters.add(AFilter())
+            }
+
+            viewModel.triggerTriggers(*filters.toTypedArray())
+        }
+
+    }*/
+
+    private fun initObservable(){
+        viewModel.list.observe(viewLifecycleOwner) {
+            init(it)
+        }
+    }
+
+    private fun init(list: List<Feature>){
+
+        featuresAdapter.submitList(list)
 
         binding.rvColors.apply {
             this.adapter = featuresAdapter
@@ -63,7 +125,6 @@ class ColorListFragment : Fragment() {
         }
 
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

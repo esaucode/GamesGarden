@@ -1,22 +1,17 @@
 package com.esaudev.gamesgarden.ui.home
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.esaudev.gamesgarden.R
+import androidx.fragment.app.Fragment
+import androidx.transition.Slide
+import androidx.transition.TransitionManager
 import com.esaudev.gamesgarden.databinding.FragmentHomeBinding
-import com.esaudev.gamesgarden.di.DataModule.FeaturesList
-import com.esaudev.gamesgarden.model.DifferentItem
-import com.esaudev.gamesgarden.ui.components.QuantityDialog
-import com.esaudev.gamesgarden.util.ItemConstants.FIRST_ITEM_TYPE
-import com.esaudev.gamesgarden.util.ItemConstants.SECOND_ITEM_TYPE
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -39,6 +34,27 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        binding.btnMostrar.setOnClickListener {
+
+            val transition = Slide(Gravity.BOTTOM)
+                .setDuration(300)
+                .addTarget(binding.btnAppear)
+
+            TransitionManager.beginDelayedTransition(binding.root, transition)
+            binding.btnAppear.visibility = View.VISIBLE
+        }
+
+        binding.btnAppear.setOnClickListener {
+            //binding.btnAppear.visibility = View.GONE
+
+            val transition = Slide(Gravity.BOTTOM)
+                .setDuration(300)
+                .addTarget(binding.btnAppear)
+
+            TransitionManager.beginDelayedTransition(binding.root, transition)
+            binding.btnAppear.visibility = View.GONE
+        }
     }
 
 
