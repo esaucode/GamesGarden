@@ -1,23 +1,25 @@
 package com.esaudev.gamesgarden.ui.recycler_view_animations
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.AbsListView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.esaudev.gamesgarden.R
 import com.esaudev.gamesgarden.databinding.FragmentColorListBinding
 import com.esaudev.gamesgarden.di.DataModule.ColorList
 import com.esaudev.gamesgarden.ui.home.adapters.FeaturesAdapter
-import com.esaudev.gamesgarden.ui.recycler_view_animations.filter.AFilter
-import com.esaudev.gamesgarden.ui.recycler_view_animations.filter.BFilter
-import com.esaudev.gamesgarden.ui.recycler_view_animations.filter.CFilter
-import com.esaudev.gamesgarden.ui.recycler_view_animations.filter.Filterable
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class ColorListFragment : Fragment() {
@@ -44,6 +46,46 @@ class ColorListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        binding.rvColors.apply {
+            this.adapter = featuresAdapter
+            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+        }
+
+
+        val snapHelper = LinearSnapHelper().apply {
+            attachToRecyclerView(binding.rvColors)
+        }
+
+        binding.rvColors.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                when (newState) {
+                    AbsListView.OnScrollListener.SCROLL_STATE_IDLE -> {
+                        val test = (binding.rvColors.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
+                        val position = (test%featuresAdapter.currentList.size)
+                        val currentItem = featuresAdapter.currentList[position]
+                        //Toast.makeText(requireContext(), currentItem.toString(), Toast.LENGTH_SHORT).show()
+                        Log.d("test_scroll", "IDLE $currentItem")
+                    }
+
+                    AbsListView.OnScrollListener.SCROLL_STATE_FLING -> {
+                        val test = (binding.rvColors.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
+                        val position = (test%featuresAdapter.currentList.size)
+                        val currentItem = featuresAdapter.currentList[position]
+                        Log.d("test_scroll", "FLING $currentItem")
+                    }
+                    else -> {
+                        val test = (binding.rvColors.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
+                        val position = (test%featuresAdapter.currentList.size)
+                        val currentItem = featuresAdapter.currentList[position]
+                        Log.d("test_scroll", "TOUCH/OTHER $currentItem")
+                    }
+                }
+            }
+        })
+
         initObservable()
         //initListeners()
         initAnimation()
@@ -118,11 +160,7 @@ class ColorListFragment : Fragment() {
     private fun init(list: List<Feature>){
 
         featuresAdapter.submitList(list)
-
-        binding.rvColors.apply {
-            this.adapter = featuresAdapter
-            layoutManager = LinearLayoutManager(requireContext())
-        }
+        binding.rvColors.scrollToPosition((Int.MAX_VALUE/2)-(Int.MAX_VALUE/2)%featuresAdapter.currentList.size)
 
     }
 

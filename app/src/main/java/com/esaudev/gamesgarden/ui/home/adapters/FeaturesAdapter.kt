@@ -31,8 +31,14 @@ class FeaturesAdapter: ListAdapter<Feature, FeaturesAdapter.FeatureViewHolder>(C
         ))
     }
 
+    override fun getItemCount(): Int {
+        return Int.MAX_VALUE
+    }
+
     override fun onBindViewHolder(holder: FeatureViewHolder, position: Int) {
-        val feature = currentList[position]
+
+        val newPosition = position % currentList.size
+        val feature = currentList[newPosition]
 
         holder.binding.tvName.text = feature.name
         holder.binding.tvQuantity.text = feature.quantity.toString()
