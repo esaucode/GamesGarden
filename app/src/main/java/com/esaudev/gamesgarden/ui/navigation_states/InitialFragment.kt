@@ -53,6 +53,7 @@ class InitialFragment : Fragment() {
         }
     }
 
+
     override fun onResume() {
         super.onResume()
         Toast.makeText(requireContext(), "on Resume triggered", Toast.LENGTH_SHORT).show()
