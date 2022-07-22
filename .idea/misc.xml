@@ -5,22 +5,33 @@
       <map>
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1955" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/drawable/bg_gradient.xml" value="0.1955" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/drawable/divider.xml" value="0.2955" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/drawable/ic_android.xml" value="0.107" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1385" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/drawable/ic_baseline_person_pin_24.xml" value="0.1385" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.1385" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1955" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/drawable/ic_netflix_short_logo.xml" value="0.2955" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/drawable/ic_search.xml" value="0.2955" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/drawable/splash_background.xml" value="0.1955" />
-        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/activity_splash.xml" value="0.3392210144927536" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/activity_tiktok.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/component_toolbar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/content_scrollable.xml" value="0.19746835443037974" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/dialog_input.xml" value="0.33" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/fragment_b.xml" value="0.3392210144927536" />
-        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/fragment_color_list.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/fragment_color_list.xml" value="0.22" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/fragment_final.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/fragment_home.xml" value="0.276268115942029" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/fragment_initial.xml" value="0.33" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/fragment_webview.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/item_color.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/item_feature.xml" value="0.276268115942029" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/item_first_type.xml" value="0.36141304347826086" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/item_second_type.xml" value="0.36141304347826086" />
-        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/menu/main_bottom_nav_menu.xml" value="0.365625" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/layout/single_video_row.xml" value="0.3" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/GamesGarden/app/src/main/res/menu/main_bottom_nav_menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

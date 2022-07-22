@@ -11,6 +11,10 @@ import androidx.navigation.fragment.findNavController
 import com.esaudev.gamesgarden.R
 import com.esaudev.gamesgarden.databinding.FragmentHomeBinding
 import com.esaudev.gamesgarden.databinding.FragmentInitialBinding
+import com.esaudev.gamesgarden.extensions.hide
+import com.esaudev.gamesgarden.extensions.hideToBottom
+import com.esaudev.gamesgarden.extensions.show
+import com.esaudev.gamesgarden.extensions.showFromBottom
 
 class InitialFragment : Fragment() {
 
@@ -37,6 +41,15 @@ class InitialFragment : Fragment() {
                 fragmentB = "Hola desde el fragmento B"
             )
             findNavController().navigate(action)
+        }
+
+
+        binding.bMostrar.setOnClickListener {
+            binding.ivImagen.showFromBottom(binding.root)
+        }
+
+        binding.bOcultar.setOnClickListener {
+            binding.ivImagen.hideToBottom(binding.root)
         }
     }
 
