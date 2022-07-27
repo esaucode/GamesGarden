@@ -18,9 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GamesGarden">
         <activity
-            android:name=".ui.tiktok.TiktokActivity"
-            android:exported="true">
+            android:name=".ui.SearchActivity"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="action.SearchActivity.open" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.tiktok.TiktokActivity"
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
