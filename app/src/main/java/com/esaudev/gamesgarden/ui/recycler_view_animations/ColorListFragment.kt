@@ -13,9 +13,11 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.esaudev.gamesgarden.R
 import com.esaudev.gamesgarden.databinding.FragmentColorListBinding
 import com.esaudev.gamesgarden.di.DataModule.ColorList
+import com.esaudev.gamesgarden.model.Sample
 import com.esaudev.gamesgarden.ui.home.adapters.FeaturesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -34,6 +36,9 @@ class ColorListFragment : Fragment() {
     private val colorsAdapter = ColorsAdapter()
     private val featuresAdapter = FeaturesAdapter()
     private val viewModel: ColorListViewModel by viewModels()
+
+
+    private var sampleList: MutableList<Sample> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -86,9 +91,42 @@ class ColorListFragment : Fragment() {
             }
         })
 
+
+        getSampleData()
+
+        with(binding) {
+            infiniteViewPager.apply {
+                adapter = InfiniteRecyclerAdapter(sampleList)
+                currentItem = 1
+            }
+        }
+
+        onInfinitePageChangeCallback(sampleList.size + 2)
+
         initObservable()
         //initListeners()
         initAnimation()
+    }
+
+    private fun getSampleData() {
+        sampleList.add(Sample(1, "#91C555"))
+        sampleList.add(Sample(2, "#F48E37"))
+        sampleList.add(Sample(3, "#FF7B7B"))
+    }
+
+    private fun onInfinitePageChangeCallback(listSize: Int) {
+        binding.infiniteViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageScrollStateChanged(state: Int) {
+                super.onPageScrollStateChanged(state)
+
+                if (state == ViewPager2.SCROLL_STATE_IDLE) {
+                    when (binding.infiniteViewPager.currentItem) {
+                        listSize - 1 -> binding.infiniteViewPager.setCurrentItem(1, false)
+                        0 -> binding.infiniteViewPager.setCurrentItem(listSize - 2, false)
+                    }
+                }
+            }
+        })
     }
 
     private fun initAnimation() {
