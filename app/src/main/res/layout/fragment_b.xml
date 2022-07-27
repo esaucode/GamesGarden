@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.navigation_states.recyclerview.BFragment">
 
@@ -13,6 +14,13 @@
         android:gravity="center"
         android:visibility="visible"
         tools:itemCount="6"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_feature" />
 
-</ScrollView>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/infiniteViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+</LinearLayout>

@@ -21,8 +21,15 @@ class PlayerListAdapter(): ListAdapter<Player, BaseListViewHolder<*>>(DiffUtilCa
 
     override fun onBindViewHolder(holder: BaseListViewHolder<*>, position: Int) {
         when (holder) {
-            is BindViewHolderList -> holder.bind(getItem(position), position)
+            is BindViewHolderList -> {
+                val positionFixed = position % currentList.size
+                holder.bind(getItem(positionFixed), positionFixed)
+            }
         }
+    }
+
+    override fun getItemCount(): Int {
+        return Int.MAX_VALUE
     }
 
     inner class BindViewHolderList(private val binding: ItemFeatureBinding) : BaseListViewHolder<Player>(binding.root) {
