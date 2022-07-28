@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import androidx.transition.Slide
 import androidx.transition.TransitionManager
@@ -67,6 +69,10 @@ class HomeFragment : Fragment() {
 
             TransitionManager.beginDelayedTransition(binding.root, transition)
             binding.btnAppear.visibility = View.GONE
+
+            val builder = CustomTabsIntent.Builder()
+            val customTabIntent = builder.build()
+            customTabIntent.launchUrl(requireContext(), Uri.parse("https://medium.com/swlh/using-custom-chrome-tabs-in-your-android-app-b31e4f8f5194"))
         }
 
         onResultSearchActivity()
