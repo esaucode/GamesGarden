@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.SnapHelper
 import androidx.viewpager2.widget.ViewPager2
 import com.esaudev.gamesgarden.R
 import com.esaudev.gamesgarden.databinding.FragmentBBinding
+import com.esaudev.gamesgarden.extension.openChromeTab
 import com.esaudev.gamesgarden.model.Player
 import com.esaudev.gamesgarden.model.Sample
 import com.esaudev.gamesgarden.ui.navigation_states.BViewModel
@@ -116,6 +117,10 @@ class BFragment : Fragment() {
     private fun initListeners(){
         playerListAdapter.setPlayerClickListener {
             Toast.makeText(requireContext(), it.name, Toast.LENGTH_SHORT).show()
+        }
+
+        binding.btnOpenCustomTab.setOnClickListener {
+            requireContext().openChromeTab("https://medium.com/@ashishpandey.professional/android-infinite-scrolling-viewpager2-195e3786ec3f")
         }
     }
 }
