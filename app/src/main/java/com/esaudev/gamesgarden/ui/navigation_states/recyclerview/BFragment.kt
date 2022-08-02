@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import androidx.viewpager2.widget.ViewPager2
+import com.esaudev.gamesgarden.BuildConfig
 import com.esaudev.gamesgarden.R
 import com.esaudev.gamesgarden.databinding.FragmentBBinding
 import com.esaudev.gamesgarden.extension.openChromeTab
@@ -29,6 +30,8 @@ class BFragment : Fragment() {
     private val viewModel: BViewModel by viewModels()
     private val args: BFragmentArgs by navArgs()
     private val playerListAdapter = PlayerListAdapter()
+
+    private val apiKey = BuildConfig.GOOGLE_MAPS_API_KEY
 
     private var sampleList: MutableList<Sample> = mutableListOf()
 
