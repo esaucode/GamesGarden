@@ -18,6 +18,7 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import androidx.transition.Slide
 import androidx.transition.TransitionManager
+import com.esaudev.gamesgarden.BuildConfig
 import com.esaudev.gamesgarden.databinding.FragmentHomeBinding
 import com.esaudev.gamesgarden.ui.SEARCH_QUERY_KEY
 import com.esaudev.gamesgarden.ui.goToSearch
@@ -31,6 +32,7 @@ class HomeFragment : Fragment() {
         get() = _binding!!
 
     private var resultSearchActivity: ActivityResultLauncher<Intent>? = null
+    private val api_safe = BuildConfig.SERVER_URL
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
