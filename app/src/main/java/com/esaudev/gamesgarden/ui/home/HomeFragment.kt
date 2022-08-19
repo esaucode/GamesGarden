@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
         get() = _binding!!
 
     private var resultSearchActivity: ActivityResultLauncher<Intent>? = null
-    private val api_safe = BuildConfig.SERVER_URL
+    //private val api_safe = BuildConfig.SERVER_URL
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
