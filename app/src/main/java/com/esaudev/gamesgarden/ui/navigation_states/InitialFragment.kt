@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.esaudev.gamesgarden.R
 import com.esaudev.gamesgarden.databinding.FragmentHomeBinding
 import com.esaudev.gamesgarden.databinding.FragmentInitialBinding
@@ -17,6 +18,8 @@ class InitialFragment : Fragment() {
     private var _binding: FragmentInitialBinding? = null
     private val binding: FragmentInitialBinding
         get() = _binding!!
+
+    private val args: InitialFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +41,8 @@ class InitialFragment : Fragment() {
             )
             findNavController().navigate(action)
         }
+
+        binding.etInput.setText(args.productId)
     }
 
     override fun onResume() {

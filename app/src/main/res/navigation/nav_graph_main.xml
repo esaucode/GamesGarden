@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_initialFragment_to_BFragment"
             app:destination="@id/BFragment" />
+
+        <deepLink app:uri="https://codewithesau.com/{productId}"/>
+        <argument android:name="productId" app:argType="string" android:defaultValue="test"/>
     </fragment>
     <fragment
         android:id="@+id/finalFragment"
