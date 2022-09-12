@@ -16,12 +16,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
-import androidx.transition.Slide
-import androidx.transition.TransitionManager
-import com.esaudev.gamesgarden.BuildConfig
 import com.esaudev.gamesgarden.databinding.FragmentHomeBinding
-import com.esaudev.gamesgarden.ui.SEARCH_QUERY_KEY
-import com.esaudev.gamesgarden.ui.goToSearch
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -49,49 +44,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
-        binding.btnMostrar.setOnClickListener {
-
-            val transition = Slide(Gravity.BOTTOM)
-                .setDuration(300)
-                .addTarget(binding.btnAppear)
-
-            TransitionManager.beginDelayedTransition(binding.root, transition)
-            binding.btnAppear.visibility = View.VISIBLE
-
-            goToSearch()
-        }
-
-        binding.btnAppear.setOnClickListener {
-            //binding.btnAppear.visibility = View.GONE
-
-            val transition = Slide(Gravity.BOTTOM)
-                .setDuration(300)
-                .addTarget(binding.btnAppear)
-
-            TransitionManager.beginDelayedTransition(binding.root, transition)
-            binding.btnAppear.visibility = View.GONE
-
-            val builder = CustomTabsIntent.Builder()
-            val customTabIntent = builder.build()
-            customTabIntent.launchUrl(requireContext(), Uri.parse("https://medium.com/swlh/using-custom-chrome-tabs-in-your-android-app-b31e4f8f5194"))
-        }
-
-        onResultSearchActivity()
-    }
-
-    private fun goToSearch() {
-        resultSearchActivity?.launch(Intent().goToSearch(requireContext()))
-    }
-
-    private fun onResultSearchActivity() {
-        resultSearchActivity =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-                if (result.resultCode == Activity.RESULT_OK) {
-                    val query = result.data?.getStringExtra(SEARCH_QUERY_KEY) ?: String()
-                    Toast.makeText(requireContext(), query, Toast.LENGTH_SHORT).show()
-                }
-            }
     }
 
     override fun onDestroyView() {
