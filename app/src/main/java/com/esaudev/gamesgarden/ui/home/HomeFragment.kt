@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
             type = FIRST_ITEM_TYPE
         ),
         DifferentItem(
-            name = "El bicho",
+            name = "Neymar",
             type = SECOND_ITEM_TYPE
         ), DifferentItem(
             name = "Messi",
