@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
 
     private val differentList = listOf(
         DifferentItem(
-            name = "El pichichi",
+            name = "Fernando",
             type = FIRST_ITEM_TYPE
         ),
         DifferentItem(
@@ -69,7 +69,7 @@ class HomeFragment : Fragment() {
         binding.bShowDialog.setOnClickListener {
             QuantityDialog(
                 onSubmitClickListener = { quantity ->
-                    Toast.makeText(requireContext(), "Usted ingreso: $quantity", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Usted ha ingreso: $quantity", Toast.LENGTH_SHORT).show()
                 }
             ).show(parentFragmentManager, "dialog")
         }
