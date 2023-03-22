@@ -69,7 +69,7 @@ class HomeFragment : Fragment() {
         binding.bShowDialog.setOnClickListener {
             QuantityDialog(
                 onSubmitClickListener = { quantity ->
-                    Toast.makeText(requireContext(), "Usted ingreso: $quantity", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Usted ha ingreso: $quantity", Toast.LENGTH_SHORT).show()
                 }
             ).show(parentFragmentManager, "dialog")
         }
