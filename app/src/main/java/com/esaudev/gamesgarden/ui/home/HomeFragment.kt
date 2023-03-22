@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
 
     private val differentList = listOf(
         DifferentItem(
-            name = "El pichichi",
+            name = "Fernando",
             type = FIRST_ITEM_TYPE
         ),
         DifferentItem(
